@@ -117,7 +117,7 @@ COPY docker-entrypoint.sh /usr/local/bin/
 COPY entrypoint-wrapper.sh /usr/local/bin/
 COPY redis-init.sh /usr/local/bin/
 COPY ioclib.lua /usr/local/bin/
-ENTRYPOINT ["bash", "entrypoint-wrapper.sh"]
+ENTRYPOINT ["chmod +x entrypoint-wrapper.sh"]
 
 EXPOSE 6379
 CMD ["redis-server"]
