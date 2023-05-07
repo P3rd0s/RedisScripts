@@ -21,7 +21,7 @@ local function get_by_value(keys, args)
 
     for i = 1, last_ioc_id do
         local ioc_value = redis.call('HGET', 'ioc:id:' .. i, 'ioc')
-        if string.find(ioc_value, search_query, 1, true) ~= nil then
+        if string.find(string.lower(ioc_value), string.lower(search_query), 1, true) ~= nil then
             table.insert(searched_indexes, i)
         end
     end
